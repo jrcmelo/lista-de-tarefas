@@ -1,8 +1,16 @@
+import ListaDeTarefas from './containers/ListaDeTarefas'
+import SideBar from './containers/SideBar'
+import EstiloGlobal, { Container } from './styles'
+
 function App() {
   return (
-    <div className="App">
-      <h1>Olá Mundo!</h1>
-    </div>
+    <>
+      <EstiloGlobal />
+      <Container>
+        <SideBar />
+        <ListaDeTarefas />
+      </Container>
+    </>
   )
 }
 
