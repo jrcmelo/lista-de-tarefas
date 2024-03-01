@@ -1,16 +1,29 @@
-import ListaDeTarefas from './containers/ListaDeTarefas'
-import SideBar from './containers/SideBar'
-import EstiloGlobal, { Container } from './styles'
+import { Provider } from 'react-redux'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import store from './store'
+import GlobalStyle, { Container } from './styles'
+import Home from './pages/Home'
+import Register from './pages/Register'
+
+const routes = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/cadastro',
+    element: <Register />
+  }
+])
 
 function App() {
   return (
-    <>
-      <EstiloGlobal />
+    <Provider store={store}>
+      <GlobalStyle />
       <Container>
-        <SideBar />
-        <ListaDeTarefas />
+        <RouterProvider router={routes} />
       </Container>
-    </>
+    </Provider>
   )
 }
 
